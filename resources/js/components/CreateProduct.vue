@@ -35,13 +35,13 @@
                         <h6 class="m-0 font-weight-bold text-primary">Variants</h6>
                     </div>
                     <div class="card-body">
-                        <div class="row" v-for="(item,index) in product_variant">
+                        <div class="row" v-for="(item,index) in product_variant" :key="item.id">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Option</label>
-                                    <select v-model="item.option" class="form-control">
+                                    <select v-model="item.option" class="form-control" >
                                         <option v-for="variant in variants"
-                                                :value="variant.id">
+                                                :value="variant.id" :key="variant.id">
                                             {{ variant.title }}
                                         </option>
                                     </select>
@@ -74,7 +74,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="variant_price in product_variant_prices">
+                                <tr v-for="variant_price in product_variant_prices" :key="variant_price.id">
                                     <td>{{ variant_price.title }}</td>
                                     <td>
                                         <input type="text" class="form-control" v-model="variant_price.price">
@@ -128,7 +128,7 @@ export default {
             dropzoneOptions: {
                 url: 'https://httpbin.org/post',
                 thumbnailWidth: 150,
-                maxFilesize: 0.5,
+                maxFilesize: 10,
                 headers: {"My-Awesome-Header": "header value"}
             }
         }
@@ -187,7 +187,7 @@ export default {
                 product_variant: this.product_variant,
                 product_variant_prices: this.product_variant_prices
             }
-
+                console.log(product);
 
             axios.post('/product', product).then(response => {
                 console.log(response.data);

@@ -2040,7 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
       dropzoneOptions: {
         url: 'https://httpbin.org/post',
         thumbnailWidth: 150,
-        maxFilesize: 0.5,
+        maxFilesize: 10,
         headers: {
           "My-Awesome-Header": "header value"
         }
@@ -2108,6 +2108,7 @@ __webpack_require__.r(__webpack_exports__);
         product_variant: this.product_variant,
         product_variant_prices: this.product_variant_prices
       };
+      console.log(product);
       axios.post('/product', product).then(function (response) {
         console.log(response.data);
       })["catch"](function (error) {
@@ -50582,7 +50583,7 @@ var render = function() {
             "div",
             { staticClass: "card-body" },
             _vm._l(_vm.product_variant, function(item, index) {
-              return _c("div", { staticClass: "row" }, [
+              return _c("div", { key: item.id, staticClass: "row" }, [
                 _c("div", { staticClass: "col-md-4" }, [
                   _c("div", { staticClass: "form-group" }, [
                     _c("label", { attrs: { for: "" } }, [_vm._v("Option")]),
@@ -50622,7 +50623,7 @@ var render = function() {
                       _vm._l(_vm.variants, function(variant) {
                         return _c(
                           "option",
-                          { domProps: { value: variant.id } },
+                          { key: variant.id, domProps: { value: variant.id } },
                           [
                             _vm._v(
                               "\n                                        " +
@@ -50705,7 +50706,7 @@ var render = function() {
                 _c(
                   "tbody",
                   _vm._l(_vm.product_variant_prices, function(variant_price) {
-                    return _c("tr", [
+                    return _c("tr", { key: variant_price.id }, [
                       _c("td", [_vm._v(_vm._s(variant_price.title))]),
                       _vm._v(" "),
                       _c("td", [
@@ -63300,8 +63301,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/rifat/Programming/mediusware/interview/interview-question-sr/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/rifat/Programming/mediusware/interview/interview-question-sr/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\interview-question-sr\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\interview-question-sr\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
